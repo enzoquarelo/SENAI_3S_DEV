@@ -1,6 +1,10 @@
-import { StatusBar } from 'expo-status-bar';
+import { StatusBar } from 'react-native';
 import { useEffect, useState } from 'react';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+
+import { Container, ContainerButtons } from './src/components/Container/Container';
+import { Title, TitleButton } from './src/components/Title/Title';
+import { ButtonIncrement, ButtonDecrement } from './src/components/Button/Button';
+import { Image } from './src/components/Image/Image';
 
 export default function App() {
 
@@ -9,7 +13,6 @@ export default function App() {
   const increment = () => {
     setCount(count + 1)
   }
-
 
   const decrement = () => {
     setCount(count - 1)
@@ -20,71 +23,26 @@ export default function App() {
   }, [count])
 
   return (
-    <View style={styles.container}>
+    <Container>
 
-      <Text style={styles.text}>Contador: {count}</Text>
+      <StatusBar />
 
-      <View style={styles.containerButtons}>
-        <TouchableOpacity style={styles.button} onPress={increment}>
-          <Text style={styles.textButton}>Incrementar</Text>
-        </TouchableOpacity>
+      <Image source={require('./assets/ampulheta.png')} />
 
-        <TouchableOpacity style={styles.buttonDecrement} onPress={decrement}>
-          <Text style={styles.textButton}>Decrementar</Text>
-        </TouchableOpacity>
-      </View>
+      <Title>Contador: {count}</Title>
 
-    </View>
+      <ContainerButtons>
+
+        <ButtonIncrement onPress={increment}>
+          <TitleButton>Incrementar</TitleButton>
+        </ButtonIncrement>
+
+        <ButtonDecrement onPress={decrement}>
+          <TitleButton>Decrementar</TitleButton>
+        </ButtonDecrement>
+
+      </ContainerButtons>
+
+    </Container>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-
-  text: {
-    fontWeight: "bold",
-    fontSize: 20,
-    paddingBottom: 15,
-  },
-
-  textButton: {
-    color: 'white',
-    fontSize: 16,
-  },
-
-  button: {
-    width: 120,
-    height: 44,
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderColor: 'transparent',
-    backgroundColor: 'rgb(34, 78, 128)',
-    borderWidth: 1,
-    borderRadius: 5,
-  },
-
-  buttonDecrement: {
-    width: 120,
-    height: 44,
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderColor: 'transparent',
-    backgroundColor: 'rgb(128, 7, 2)',
-    borderWidth: 1,
-    borderRadius: 5,
-  },
-
-  containerButtons: {
-    width: 250,
-
-    display: "flex",
-    flexDirection: "row",
-    alignItems: 'center',
-    justifyContent: 'space-between',
-  }
-});
