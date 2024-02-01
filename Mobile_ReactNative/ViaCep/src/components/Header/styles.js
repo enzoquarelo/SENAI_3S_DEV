@@ -11,7 +11,11 @@ export const ContainerHeader = styled.View`
     align-items: center;
     justify-content: center;
 
-    box-shadow:0px 0px 10px red;
+    box-shadow:0px 0px 10px #000;
+    shadow-color: #000;
+    shadow-offset: 0px 4px;
+    shadow-radius: 15px;
+    elevation: 5;
 `;
 
 export const Title = styled.Text`
