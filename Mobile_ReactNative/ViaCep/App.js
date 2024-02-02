@@ -4,7 +4,7 @@ import { Header } from './src/components/header';
 import { Container } from './src/components/container/container';
 import { Input, InputEstado, InputUF } from './src/components/input/input';
 import { Label } from './src/components/labelinput/labelinput';
-import { InputContainer, InputPersonalContainer } from './src/components/inputContainer/inputContainer';
+import { InputContainer, InputUFContainer } from './src/components/inputContainer/inputContainer';
 // import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { useEffect, useState } from 'react';
 import { StatusBar } from 'react-native';
@@ -58,7 +58,7 @@ export default function App() {
           <Input placeholder="Ex: Tangamandápio"></Input>
         </InputContainer>
 
-        <InputPersonalContainer>
+        <InputUFContainer>
 
           <InputContainer>
             <Label>Estado:</Label>
@@ -70,7 +70,7 @@ export default function App() {
             <InputUF placeholder="SP" />
           </InputContainer>
 
-        </InputPersonalContainer>
+        </InputUFContainer>
 
         <StatusBar backgroundColor={"#FECC2B"} barStyle={"dark-content"}/>
       </Container>
