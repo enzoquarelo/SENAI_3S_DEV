@@ -1,34 +1,82 @@
-import { Container } from './src/components/Container/Container';
-import { Input } from './src/components/Input/Input';
-import Header from './src/components/Header/Header';
-
-import { useFonts, Roboto_500Medium } from '@expo-google-fonts/roboto';
+import { useFonts, Roboto_400Regular } from '@expo-google-fonts/roboto';
+import { Roboto_500Medium } from '@expo-google-fonts/roboto';
+import { Header } from './src/components/header';
+import { Container } from './src/components/container/container';
+import { Input, InputEstado, InputUF } from './src/components/input/input';
+import { Label } from './src/components/labelinput/labelinput';
+import { InputContainer, InputPersonalContainer } from './src/components/inputContainer/inputContainer';
+// import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { useEffect, useState } from 'react';
+import { StatusBar } from 'react-native';
 
 export default function App() {
 
+  useEffect(() => {
+
+  }, [])
+
+
+  const [endereco, setEndereco] = useState("");
+
+
   let [fontsLoaded, fontError] = useFonts({
-    Roboto_500Medium,
+    Roboto_400Regular,
+    Roboto_500Medium
   });
 
   if (!fontsLoaded && !fontError) {
     return null;
   }
 
-  const [endereco, setEndereco] = useState("");
-
   return (
-    <Container>
-
+    <>
       <Header />
 
-      {/* <Label>Informar CEP:</Label> */}
-      <Input
-        value={endereco}
-        onChangeText={setEndereco}
-        placeholder="XXXXXX-XX"
-        keyboardType="numeric"></Input>
+      <Container>
 
-    </Container>
+        <InputContainer>
+          <Label>Informar CEP:</Label>
+          <Input
+            value={endereco}
+            onChangeText={setEndereco}
+            placeholder="XXXXXX-XX"
+            keyboardType="numeric"></Input>
+        </InputContainer>
+
+        <InputContainer>
+          <Label>Logradouro:</Label>
+          <Input placeholder="EX: Rua dos Açores"></Input>
+        </InputContainer>
+
+        <InputContainer>
+          <Label>Bairro:</Label>
+          <Input placeholder="Ex: Vila dos Tamanduás"></Input>
+        </InputContainer>
+
+        <InputContainer>
+          <Label>Cidade:</Label>
+          <Input placeholder="Ex: Tangamandápio"></Input>
+        </InputContainer>
+
+        <InputPersonalContainer>
+
+          <InputContainer>
+            <Label>Estado:</Label>
+            <InputEstado placeholder="São Paulo" />
+          </InputContainer>
+
+          <InputContainer>
+            <Label>UF:</Label>
+            <InputUF placeholder="SP" />
+          </InputContainer>
+
+        </InputPersonalContainer>
+
+        <StatusBar backgroundColor={"#FECC2B"} barStyle={"dark-content"}/>
+      </Container>
+
+    </>
+
   );
 }
+

@@ -1,6 +1,7 @@
-import { Text, TextInput } from "react-native"
+import { Text } from "react-native"
 import { FieldContent } from "./style"
 import { LabelEx } from "../labelinput"
+import { InputText } from "../input/style"
 
 export const BoxInput = ({
     fieldWidth = 100,
@@ -26,6 +27,6 @@ export const BoxInput = ({
             fieldValue={fieldValue}
             onChangeText={onChangeText}
             />
-            <TextInput />
+            <InputText />
         </FieldContent>
 )}
