@@ -13,5 +13,5 @@ flex-direction: row;
 width: 320px;
 
 justify-content: space-between;
-margin-bottom: 60px;
+margin-bottom: 50px;
 `

@@ -7,6 +7,8 @@ export const Container = styled.View`
     justify-content: space-around;
     margin-top: 20px;
 
+    width: 100%;
+
     display: flex;
     gap: 30px;
 `

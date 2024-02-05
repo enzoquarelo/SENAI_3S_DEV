@@ -2,9 +2,9 @@ import { InputText } from "./style";
 
 export function Input({
     placeholder,
-    editable,
+    editable = true,
     fieldValue,
-    onchangeText,
+    onChangeText = null,
     KeyType,
     maxLenght
 }) {
@@ -16,7 +16,7 @@ export function Input({
                 keyboardType={KeyType}
                 maxLenght={maxLenght}
                 value={fieldValue}
-                onchangeText={onchangeText}
+                onChangeText={onChangeText}
             />
         </>
     )
